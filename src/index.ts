@@ -1,23 +1,23 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
 import { routes } from "./routes";
+import { createConnection } from "typeorm";
 
-const port = process.env.PORT || 8000;
-const app = express();
+createConnection().then((connection) => {
+  // here you can start to work with your entities
+  const port = process.env.PORT || 8000;
+  const app = express();
 
-app.use(express.json());
-app.use(
-  cors({
-    origin: ["http://localhost:3000"],
-  })
-);
+  app.use(express.json());
+  app.use(
+    cors({
+      origin: ["http://localhost:3000"],
+    })
+  );
 
-routes(app);
+  routes(app);
 
-// app.get("/", (req: Request, res: Response) => {
-//   res.send("Hello world");
-// });
-
-app.listen(port, () => {
-  console.log("listening on port " + port);
+  app.listen(port, () => {
+    console.log("listening on port " + port);
+  });
 });

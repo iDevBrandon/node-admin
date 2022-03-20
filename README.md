@@ -13,3 +13,6 @@ In routes.ts, put all of route APIs
 ## 6. validation
 To registeration for validation, set the rules in register.validation.ts
 and then use it in register() 
+
+## 7. TypeORM
+Apply typeORM
