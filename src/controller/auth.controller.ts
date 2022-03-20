@@ -3,7 +3,6 @@ import { RegisterValidation } from "../validation/register.validation";
 import { getManager } from "typeorm";
 import { User } from "../entity/user.entity";
 import bcyptjs from "bcryptjs";
-import { sign, verify } from "jsonwebtoken";
 
 export const Register = async (req: Request, res: Response) => {
   const body = req.body;
@@ -34,22 +33,21 @@ export const Register = async (req: Request, res: Response) => {
 
 export const Login = async (req: Request, res: Response) => {
   const repository = getManager().getRepository(User);
-  // @ts-ignore
+
   const user = await repository.findOne({ email: req.body.email });
 
   if (!user) {
     return res.status(400).send({
-      message: "no user credentials!",
+      message: "wrong user credentials!",
     });
   }
 
   if (!(await bcyptjs.compare(req.body.password, user.password))) {
     return res.status(400).send({
-      message: "wrong passW credentials!",
+      message: "wrong password credentials!",
     });
   }
 
-  res.send({
-    message: "success",
-  });
+  const { password, ...data } = user;
+  res.send(data);
 };
