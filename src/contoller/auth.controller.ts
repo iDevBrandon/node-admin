@@ -1,7 +1,10 @@
 import { Request, Response } from "express";
+import { getManager } from "typeorm";
+import { User } from "../entity/user.entity";
 import { RegisterValidation } from "../validation/register.validation";
+import bcryptjs from "bcryptjs";
 
-export const Register = (req: Request, res: Response) => {
+export const Register = async (req: Request, res: Response) => {
   const body = req.body;
 
   const { error } = RegisterValidation.validate(body);
@@ -14,5 +17,15 @@ export const Register = (req: Request, res: Response) => {
     return res.status(400).send("Password does not match!");
   }
 
-  res.send(body);
+  // will get the repository of user
+  const repository = getManager().getRepository(User);
+
+  const { password, ...user } = await repository.save({
+    first_name: body.first_name,
+    last_name: body.last_name,
+    email: body.email,
+    password: await bcryptjs.hash(body.password, 10),
+  });
+
+  res.send(user);
 };

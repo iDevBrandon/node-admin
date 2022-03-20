@@ -16,3 +16,6 @@ and then use it in register()
 
 ## 7. TypeORM
 Apply typeORM
+
+## 8. Register
+Create a user table to save the data and save user info(including hashed password)
