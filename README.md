@@ -21,3 +21,7 @@ Apply typeORM
 Create a user table to save the data and save user info(including hashed password)
 
 ## 9. Login
+Somehow "yarn" didn't now work so i had to copy all package from original course and replaced to NPM
+
+## 10. JWT
+Create a token for user authentication

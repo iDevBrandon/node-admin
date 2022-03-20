@@ -11,7 +11,7 @@ createConnection().then((connection) => {
   app.use(express.json());
   app.use(
     cors({
-      credentials: true,
+      credentials: true, // Now FE can access the cookie
       origin: ["http://localhost:3000"],
     })
   );
