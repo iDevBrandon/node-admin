@@ -1,4 +1,3 @@
-import { Request, Response } from "express";
 import { Joi } from "express-validation";
 
 export const RegisterValidation = Joi.object({

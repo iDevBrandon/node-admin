@@ -19,3 +19,5 @@ Apply typeORM
 
 ## 8. Register
 Create a user table to save the data and save user info(including hashed password)
+
+## 9. Login
