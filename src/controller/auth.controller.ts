@@ -67,27 +67,8 @@ export const Login = async (req: Request, res: Response) => {
 };
 
 export const AuthenticatedUser = async (req: Request, res: Response) => {
-  try {
-    const jwt = req.cookies["jwt"];
-
-    const payload: any = verify(jwt, process.env.SECRET_KEY);
-
-    if (!payload) {
-      return res.status(401).send({
-        message: "Not authenticated",
-      });
-    }
-
-    const repository = getManager().getRepository(User);
-
-    const { password, ...user } = await repository.findOne(payload.id);
-
-    res.send(user); // return based on saved cookie value
-  } catch (e) {
-    return res.status(401).send({
-      message: "Not authenticated",
-    });
-  }
+  const { password, ...user } = req["user"];
+  res.send(user);
 };
 
 export const Logout = async (req: Request, res: Response) => {

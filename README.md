@@ -35,3 +35,6 @@ Cover in try...catch... statement to prevent fake authentication
 
 ## 13. Environment variables
 use dotenv to set environment variables
+
+## 14. Middlewares
+To prevent fraud in unauthorized access
