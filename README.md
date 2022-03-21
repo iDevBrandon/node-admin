@@ -38,3 +38,6 @@ use dotenv to set environment variables
 
 ## 14. Middlewares
 To prevent fraud in unauthorized access
+
+## 15. Profile
+Create a profile route to update user and password
