@@ -25,3 +25,6 @@ Somehow "yarn" didn't now work so i had to copy all package from original course
 
 ## 10. JWT
 Create a token for user authentication
+
+## 11. Authenticated User 
+Create a auth route for login

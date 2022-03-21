@@ -2,6 +2,7 @@ import express, { Request, Response } from "express";
 import cors from "cors";
 import { routes } from "./routes";
 import { createConnection } from "typeorm";
+import cookieParser from "cookie-parser";
 
 createConnection().then((connection) => {
   // here you can start to work with your entities
@@ -9,6 +10,7 @@ createConnection().then((connection) => {
   const app = express();
 
   app.use(express.json());
+  app.use(cookieParser());
   app.use(
     cors({
       credentials: true, // Now FE can access the cookie
