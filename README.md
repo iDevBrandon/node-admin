@@ -32,3 +32,6 @@ Create a auth route for login
 ## 12. Logout 
 Create a logout route for logout and remove jwt cookie
 Cover in try...catch... statement to prevent fake authentication
+
+## 13. Environment variables
+use dotenv to set environment variables
