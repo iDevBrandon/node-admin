@@ -46,3 +46,12 @@ Create a profile route to update user and password
 auth.controller works with our own auth
 user.controller works with that other user can register other user
 GET/CREATE/UPDATE/DELETE for user
+
+## 17. Roles (connect with different entities)
+Role model for users
+To make connection between role and user entities,
+
+OneToMany means that user can have many roles
+ManyToOne means that the role can have many users
+
+relations: ["role"], which should match the name of the entity
