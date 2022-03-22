@@ -55,3 +55,10 @@ OneToMany means that user can have many roles
 ManyToOne means that the role can have many users
 
 relations: ["role"], which should match the name of the entity
+
+## 18. Permissions 
+ManyToMany between roles and permissions (one role can have many permissions)
+In SQL, to solve this problem, by creating another table that makes relationship possible
+
+we got 4 tables (user, role, permission, role_permissions)
+Gonna learn more detail in the next one 
