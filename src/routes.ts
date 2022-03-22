@@ -15,6 +15,14 @@ import {
   UpdateUser,
   DeleteUser,
 } from "./controller/user.controller";
+import { Permissions } from "./controller/permission.controller";
+import {
+  CreateRole,
+  GetRole,
+  Roles,
+  UpdateRole,
+  DeleteRole,
+} from "./controller/role.controller";
 
 export const routes = (router: Router) => {
   router.post("/api/register", Register);
@@ -29,4 +37,12 @@ export const routes = (router: Router) => {
   router.get("/api/users/:id", AuthMiddleware, GetUser);
   router.put("/api/users/:id", AuthMiddleware, UpdateUser);
   router.delete("/api/users/:id", AuthMiddleware, DeleteUser);
+
+  router.get("/api/permissions", AuthMiddleware, Permissions);
+
+  router.get("/api/roles", AuthMiddleware, Roles);
+  router.post("/api/roles", AuthMiddleware, CreateRole);
+  router.get("/api/roles/:id", AuthMiddleware, GetRole);
+  router.put("/api/roles/:id", AuthMiddleware, UpdateRole);
+  router.delete("/api/roles/:id", AuthMiddleware, DeleteRole);
 };

@@ -99,3 +99,6 @@ SET FOREIGN_KEY_CHECKS =1;
 if we delete the permissions with `delete permission[3]`, it does not mean that it has less index, it just replace to null
 
 Ended up giving each role's permissions
+
+## 20. Roles and Permissions CRUD
+contols for the permissions and the roles 
