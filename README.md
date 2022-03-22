@@ -41,3 +41,8 @@ To prevent fraud in unauthorized access
 
 ## 15. Profile
 Create a profile route to update user and password
+
+## 16. Users CRUD
+auth.controller works with our own auth
+user.controller works with that other user can register other user
+GET/CREATE/UPDATE/DELETE for user

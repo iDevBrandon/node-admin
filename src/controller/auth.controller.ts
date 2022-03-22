@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { RegisterValidation } from "../validation/register.validation";
 import { getManager } from "typeorm";
 import { User } from "../entity/user.entity";
-import bcyptjs from "bcryptjs";
+import bcryptjs from "bcryptjs";
 import { sign, verify } from "jsonwebtoken";
 
 export const Register = async (req: Request, res: Response) => {
@@ -26,7 +26,7 @@ export const Register = async (req: Request, res: Response) => {
     first_name: body.first_name,
     last_name: body.last_name,
     email: body.email,
-    password: await bcyptjs.hash(body.password, 10),
+    password: await bcryptjs.hash(body.password, 10),
   });
 
   res.send(user);
@@ -43,7 +43,7 @@ export const Login = async (req: Request, res: Response) => {
     });
   }
 
-  if (!(await bcyptjs.compare(req.body.password, user.password))) {
+  if (!(await bcryptjs.compare(req.body.password, user.password))) {
     return res.status(400).send({
       message: "wrong password credentials!",
     });
@@ -105,7 +105,7 @@ export const UpdatePassword = async (req: Request, res: Response) => {
   const repository = getManager().getRepository(User);
 
   await repository.update(user.id, {
-    password: await bcyptjs.hash(req.body.password, 10),
+    password: await bcryptjs.hash(req.body.password, 10),
   });
 
   const { password, ...data } = user;
