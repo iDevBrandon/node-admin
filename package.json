@@ -6,7 +6,8 @@
   "author": "Brandon Ha <idevbrandon@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon src/index.ts"
+    "start": "nodemon src/index.ts",
+    "roles:seed": "ts-node src/seeder/role.seeder.ts"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
