@@ -141,3 +141,8 @@ GROUP BY date
 ```
 
 How to run this raw sql in TypeORM
+
+## 29. Permission middleware
+Test the roles and the permissions 
+
+It's a bit complicated. I think it should be organise before applying to FE

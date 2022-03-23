@@ -19,7 +19,11 @@ createConnection().then(async (connection) => {
   let permissions = [];
 
   for (let i = 0; i < perms.length; i++) {
-    permissions.push(await permissionRepository.save({ name: perms[i] }));
+    permissions.push(
+      await permissionRepository.save({
+        name: perms[i],
+      })
+    );
   }
 
   const roleRepository = getManager().getRepository(Role);
