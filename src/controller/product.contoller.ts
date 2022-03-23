@@ -30,7 +30,7 @@ export const CreateProduct = async (req: Request, res: Response) => {
 
   const product = await repository.save(req.body);
 
-  res.status(201).send(product);
+  res.status(201).send(product); 
 };
 
 // Get a product by id
