@@ -5,17 +5,31 @@ import bcryptjs from "bcryptjs";
 
 // Get all users
 export const Users = async (req: Request, res: Response) => {
+  const take = 15;
+  const page = parseInt((req.query.page as string) || "1");
+
   const repository = getManager().getRepository(User);
 
-  const users = await repository.find({ relations: ["role"] });
+  const [data, total] = await repository.findAndCount({
+    take,
+    skip: (page - 1) * take,
+    relations: ["role"],
+  });
 
-  res.send(
-    users.map((user) => {
-      const { password, ...data } = user;
+  res.send({
+    data: data.map((u) => {
+      const { password, ...data } = u;
 
       return data;
-    })
-  );
+    }),
+    meta: {
+      total,
+      page,
+      last_page: Math.ceil(total / take),
+    },
+  });
+
+  res.send();
 };
 
 // Create a new user

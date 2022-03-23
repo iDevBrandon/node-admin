@@ -2,13 +2,26 @@ import { Request, Response } from "express";
 import { getManager } from "typeorm";
 import { Product } from "../entity/product.entity";
 
-// Get all products
+// Get all products & pagination
 export const Products = async (req: Request, res: Response) => {
+  const take = 15;
+  const page = parseInt((req.query.page as string) || "1");
+
   const repository = getManager().getRepository(Product);
 
-  const products = await repository.find();
+  const [data, total] = await repository.findAndCount({
+    take,
+    skip: (page - 1) * take,
+  });
 
-  res.send(products);
+  res.send({
+    data,
+    meta: {
+      total,
+      page,
+      last_page: Math.ceil(total / take),
+    },
+  });
 };
 
 // Create a new product

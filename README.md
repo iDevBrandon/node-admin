@@ -105,3 +105,9 @@ contols for the permissions and the roles
 
 ## 21. Products 
 Routes and APIs for the products
+
+## 22. Pagination
+Set take 15 and page based on 1
+
+pagination is used with "findAndCount" in products/user page
+In postman we have "data" & "meta" data form to give pagination info

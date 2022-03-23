@@ -1,13 +1,14 @@
 {
   "name": "node-admin",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.ts",
   "repository": "https://github.com/iDevBrandon/node-admin.git",
   "author": "Brandon Ha <idevbrandon@gmail.com>",
   "license": "MIT",
   "scripts": {
     "start": "nodemon src/index.ts",
-    "roles:seed": "ts-node src/seeder/role.seeder.ts"
+    "roles:seed": "ts-node src/seeder/role.seeder.ts",
+    "products:seed": "ts-node src/seeder/product.seeder.ts"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
@@ -30,6 +31,7 @@
     "dotenv": "^16.0.0",
     "express": "^4.17.1",
     "express-validation": "^3.0.8",
+    "faker": "^5.5.3",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.3.3",
     "reflect-metadata": "^0.1.13",
