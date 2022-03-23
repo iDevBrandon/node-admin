@@ -102,3 +102,6 @@ Ended up giving each role's permissions
 
 ## 20. Roles and Permissions CRUD
 contols for the permissions and the roles 
+
+## 21. Products 
+Routes and APIs for the products
