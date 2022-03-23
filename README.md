@@ -118,3 +118,6 @@ use multer and create upload() to keep route simple
 ## 24. Static Routes
 Since we upload files, there's no public path to access.
 In order to make it public, have to add static routes 
+
+## 25. Orders
+Insert order/order_item data into database
