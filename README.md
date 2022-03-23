@@ -121,3 +121,8 @@ In order to make it public, have to add static routes
 
 ## 25. Orders
 Insert order/order_item data into database
+
+## 26. Typescript Getters
+order controller
+
+get total(), created a coulmue but it looks like a function
