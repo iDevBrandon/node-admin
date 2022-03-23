@@ -13,6 +13,7 @@ createConnection().then(async (connection) => {
       first_name: faker.name.firstName(),
       last_name: faker.name.lastName(),
       email: faker.internet.email(),
+      created_at: faker.date.past(2).toDateString(),
     });
 
     for (let j = 0; j < randomInt(1, 5); j++) {

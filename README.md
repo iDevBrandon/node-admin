@@ -129,3 +129,15 @@ get total(), created a coulmue but it looks like a function
 
 ## 27. Export CSV file
 send export CSV file in Node.js
+
+## 28. Raw SQL
+query console and run a raw SQL to get the sales by a specific date
+
+```sql
+SELECT DATE_FORMAT(o.created_at, '%Y-%m-%d') as date, SUM(oi.price * oi.quantity) as sum
+FROM `order` o
+JOIN order_item oi on o.id = oi.order_id
+GROUP BY date
+```
+
+How to run this raw sql in TypeORM
