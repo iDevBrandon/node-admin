@@ -1,4 +1,4 @@
-import { Router } from "express";
+import express, { Router } from "express";
 import {
   AuthenticatedUser,
   Login,
@@ -61,4 +61,5 @@ export const routes = (router: Router) => {
   router.delete("/api/products/:id", AuthMiddleware, DeleteProduct);
 
   router.post("/api/upload", AuthMiddleware, Upload);
+  router.use("/api/uploads", express.static("./uploads"));
 };

@@ -114,3 +114,7 @@ In postman we have "data" & "meta" data form to give pagination info
 
 ## 23. Uploading images
 use multer and create upload() to keep route simple
+
+## 24. Static Routes
+Since we upload files, there's no public path to access.
+In order to make it public, have to add static routes 
