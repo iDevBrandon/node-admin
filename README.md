@@ -111,3 +111,6 @@ Set take 15 and page based on 1
 
 pagination is used with "findAndCount" in products/user page
 In postman we have "data" & "meta" data form to give pagination info
+
+## 23. Uploading images
+use multer and create upload() to keep route simple

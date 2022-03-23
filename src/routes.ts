@@ -30,6 +30,7 @@ import {
   Products,
   UpdateProduct,
 } from "./controller/product.contoller";
+import { Upload } from "./controller/image.controller";
 
 export const routes = (router: Router) => {
   router.post("/api/register", Register);
@@ -58,4 +59,6 @@ export const routes = (router: Router) => {
   router.get("/api/products/:id", AuthMiddleware, GetProduct);
   router.put("/api/products/:id", AuthMiddleware, UpdateProduct);
   router.delete("/api/products/:id", AuthMiddleware, DeleteProduct);
+
+  router.post("/api/upload", AuthMiddleware, Upload);
 };
